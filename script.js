@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. นำ Loader ออกเมื่อโหลดหน้าเว็บเสร็จ
+    // 1. บังคับซ่อน Loader เมื่อโหลดหน้าเว็บเสร็จ (ไม่หมุนค้างแน่นอน)
     setTimeout(() => {
         const loader = document.getElementById('loader');
-        loader.style.opacity = '0';
-        loader.style.visibility = 'hidden';
-    }, 1000);
+        if (loader) {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+        }
+    }, 800);
 
     // 2. Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
@@ -35,118 +37,136 @@ async function fetchData() {
         renderPortfolio(data);
     } catch (error) {
         console.error("Error loading portfolio data:", error);
-        if (window.location.protocol === 'file:') {
-            alert("⚠️ ไม่สามารถโหลดข้อมูล JSON ได้ กรุณาเปิดผ่าน Local Server หรือตรวจสอบการตั้งค่าบน GitHub Pages");
+        // แสดงข้อความแจ้งเตือนบนหน้าเว็บหากหาไฟล์ JSON ไม่เจอ
+        const heroDesc = document.getElementById('hero-desc');
+        if (heroDesc) {
+            heroDesc.textContent = "ไม่สามารถดึงข้อมูล portfolio.jsonได้ กรุณาตรวจสอบโฟลเดอร์ data/portfolio.json บน GitHub";
         }
     }
 }
 
 function renderPortfolio(data) {
     // Render Hero
-    document.getElementById('hero-subtitle').textContent = data.hero.subtitle;
-    document.getElementById('hero-title').textContent = data.hero.title;
-    document.getElementById('hero-desc').textContent = data.hero.description;
+    if (data.hero) {
+        document.getElementById('hero-subtitle').textContent = data.hero.subtitle || '';
+        document.getElementById('hero-title').textContent = data.hero.title || '';
+        document.getElementById('hero-desc').textContent = data.hero.description || '';
 
-    const heroVisual = document.getElementById('hero-visual');
-    if (data.hero.profileImage) {
-        heroVisual.innerHTML = `
-            <div class="profile-frame">
-                <img src="${data.hero.profileImage}" alt="${data.hero.title}" class="profile-img">
-            </div>
-        `;
+        const heroVisual = document.getElementById('hero-visual');
+        if (heroVisual && data.hero.profileImage) {
+            heroVisual.innerHTML = `
+                <div class="profile-frame">
+                    <img src="${data.hero.profileImage}" alt="${data.hero.title}" class="profile-img">
+                </div>
+            `;
+        }
     }
 
     // Render About
-    document.getElementById('about-bio').textContent = data.about.bio;
-    const aboutInfo = document.getElementById('about-info');
-    aboutInfo.innerHTML = `
-        <div class="stat-card">
-            <div class="stat-label">สถานศึกษา</div>
-            <div class="stat-value">${data.about.university}</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">แผนการเรียน</div>
-            <div class="stat-value">${data.about.major}</div>
-        </div>
-        <div class="stat-card" style="grid-column: span 2;">
-            <div class="stat-label">ความสนใจ</div>
-            <div class="stat-value">${data.about.interests.join(', ')}</div>
-        </div>
-    `;
+    if (data.about) {
+        document.getElementById('about-bio').textContent = data.about.bio || '';
+        const aboutInfo = document.getElementById('about-info');
+        if (aboutInfo) {
+            aboutInfo.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-label">สถานศึกษา</div>
+                    <div class="stat-value">${data.about.university || ''}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">แผนการเรียน</div>
+                    <div class="stat-value">${data.about.major || ''}</div>
+                </div>
+                <div class="stat-card" style="grid-column: span 2;">
+                    <div class="stat-label">ความสนใจ</div>
+                    <div class="stat-value">${(data.about.interests || []).join(', ')}</div>
+                </div>
+            `;
+        }
+    }
 
     // Render Skills
     const skillsContainer = document.getElementById('skills-container');
-    skillsContainer.innerHTML = '';
-    data.skills.forEach(skillCategory => {
-        const tags = skillCategory.items.map(item => `<span class="skill-tag">${item}</span>`).join('');
-        skillsContainer.innerHTML += `
-            <div class="skill-category">
-                <i class="${skillCategory.icon} skill-icon"></i>
-                <h3>${skillCategory.title}</h3>
-                <div class="skill-list">
-                    ${tags}
+    if (skillsContainer && data.skills) {
+        skillsContainer.innerHTML = '';
+        data.skills.forEach(skillCategory => {
+            const tags = skillCategory.items.map(item => `<span class="skill-tag">${item}</span>`).join('');
+            skillsContainer.innerHTML += `
+                <div class="skill-category">
+                    <i class="${skillCategory.icon} skill-icon"></i>
+                    <h3>${skillCategory.title}</h3>
+                    <div class="skill-list">
+                        ${tags}
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+    }
 
     // Render Projects
     const projectsContainer = document.getElementById('projects-container');
-    projectsContainer.innerHTML = '';
-    data.projects.forEach(project => {
-        const techTags = project.technologies.map(tech => `<span>${tech}</span>`).join('');
-        const visualContent = project.image 
-            ? `<img src="${project.image}" alt="${project.title}" class="project-img">`
-            : `<i class="${project.icon}"></i>`;
+    if (projectsContainer && data.projects) {
+        projectsContainer.innerHTML = '';
+        data.projects.forEach(project => {
+            const techTags = (project.technologies || []).map(tech => `<span>${tech}</span>`).join('');
+            const visualContent = project.image 
+                ? `<img src="${project.image}" alt="${project.title}" class="project-img">`
+                : `<i class="${project.icon}"></i>`;
 
-        projectsContainer.innerHTML += `
-            <div class="project-card">
-                <div class="project-visual">
-                    <span class="project-number">PROJECT ${project.id}</span>
-                    ${visualContent}
-                </div>
-                <div class="project-content">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <div class="project-tech">
-                        ${techTags}
+            projectsContainer.innerHTML += `
+                <div class="project-card">
+                    <div class="project-visual">
+                        <span class="project-number">PROJECT ${project.id}</span>
+                        ${visualContent}
                     </div>
-                    <a href="${project.link}" class="btn-link" target="_blank">
-                        ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <div class="project-content">
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <div class="project-tech">
+                            ${techTags}
+                        </div>
+                        <a href="${project.link}" class="btn-link" target="_blank">
+                            ดูรายละเอียด <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+    }
 
     // Render Workflow
     const workflowContainer = document.getElementById('workflow-container');
-    workflowContainer.innerHTML = '';
-    data.workflow.forEach(step => {
-        workflowContainer.innerHTML += `
-            <div class="timeline-item">
-                <div class="timeline-step-num">${step.id}</div>
-                <div class="timeline-content">
-                    <h3>${step.title}</h3>
-                    <p>${step.description}</p>
+    if (workflowContainer && data.workflow) {
+        workflowContainer.innerHTML = '';
+        data.workflow.forEach(step => {
+            workflowContainer.innerHTML += `
+                <div class="timeline-item">
+                    <div class="timeline-step-num">${step.id}</div>
+                    <div class="timeline-content">
+                        <h3>${step.title}</h3>
+                        <p>${step.description}</p>
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+    }
 
     // Render Contact
-    document.getElementById('contact-title').textContent = data.contact.title;
-    document.getElementById('contact-desc').textContent = data.contact.description;
-    
-    const socialContainer = document.getElementById('social-container');
-    socialContainer.innerHTML = '';
-    data.contact.links.forEach(link => {
-        socialContainer.innerHTML += `
-            <a href="${link.url}" class="contact-phone-btn">
-                <i class="${link.icon}"></i> ${link.platform}
-            </a>
-        `;
-    });
+    if (data.contact) {
+        document.getElementById('contact-title').textContent = data.contact.title || '';
+        document.getElementById('contact-desc').textContent = data.contact.description || '';
+        
+        const socialContainer = document.getElementById('social-container');
+        if (socialContainer && data.contact.links) {
+            socialContainer.innerHTML = '';
+            data.contact.links.forEach(link => {
+                socialContainer.innerHTML += `
+                    <a href="${link.url}" class="contact-phone-btn">
+                        <i class="${link.icon}"></i> ${link.platform}
+                    </a>
+                `;
+            });
+        }
+    }
 
     // Re-trigger observer
     setupScrollObserver();
