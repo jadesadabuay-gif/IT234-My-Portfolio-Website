@@ -9,16 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Icons (FontAwesome) -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div id="loader" class="loader-wrapper">
-        <div class="data-node-loader"></div>
-        <p>INITIALIZING DATA...</p>
-    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -65,9 +60,7 @@
                 <div class="about-text">
                     <p id="about-bio">กำลังโหลดข้อมูล...</p>
                 </div>
-                <div class="about-stats" id="about-info">
-                    <!-- ข้อมูลจำเพาะจะถูกดึงผ่าน JS -->
-                </div>
+                <div class="about-stats" id="about-info"></div>
             </div>
         </div>
     </section>
@@ -76,9 +69,7 @@
     <section id="skills" class="skills-section">
         <div class="container reveal">
             <h2 class="section-heading">ทักษะความเชี่ยวชาญ<span class="dot">.</span></h2>
-            <div class="skills-grid" id="skills-container">
-                <!-- ทักษะจะถูกดึงผ่าน JS -->
-            </div>
+            <div class="skills-grid" id="skills-container"></div>
         </div>
     </section>
 
@@ -86,9 +77,7 @@
     <section id="projects" class="projects-section">
         <div class="container reveal">
             <h2 class="section-heading">ผลงานที่โดดเด่น<span class="dot">.</span></h2>
-            <div class="projects-wrapper" id="projects-container">
-                <!-- โปรเจกต์จะถูกดึงผ่าน JS -->
-            </div>
+            <div class="projects-wrapper" id="projects-container"></div>
         </div>
     </section>
 
@@ -96,11 +85,29 @@
     <section id="workflow" class="workflow-section">
         <div class="container reveal">
             <h2 class="section-heading">ประสบการณ์กิจกรรม<span class="dot">.</span></h2>
-            <div class="timeline" id="workflow-container">
-                <!-- Workflow จะถูกดึงผ่าน JS -->
-            </div>
+            <div class="timeline" id="workflow-container"></div>
         </div>
     </section>
 
     <!-- Section 06: Contact -->
     <section id="contact" class="contact-section">
+        <div class="container reveal">
+            <div class="contact-box">
+                <h2 id="contact-title">ช่องทางการติดต่อ</h2>
+                <p id="contact-desc">กำลังโหลดข้อมูล...</p>
+                <div class="social-links" id="social-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Jassada Buayairaksa (Petch). All Rights Reserved.</p>
+            <a href="#hero" class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
