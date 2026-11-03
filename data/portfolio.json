@@ -3,7 +3,7 @@
     "subtitle": "คอมพิวเตอร์ - อังกฤษ | โรงเรียนคณะราษฎร์บำรุงปทุมธานี",
     "title": "JASSADA BUAYAIRAKSA",
     "description": "มีความสนใจด้าน Coding อย่างมาก ชอบการสร้างสรรค์จินตนาการอย่างไร้ขีดจำกัด และรักในการเรียนรู้เทคโนโลยีใหม่ๆ เพื่อพัฒนาตนเองอย่างไม่สิ้นสุด",
-    "profileImage": "./PF.jpg"
+    "profileImage": "PF.jpg"
   },
   "about": {
     "bio": "ผมชื่อ นายเจษฎา บัวใหญ่รักษา เกิดวันที่ 14 พฤศจิกายน 2549 ปัจจุบันกำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 6 โรงเรียนคณะราษฎร์บำรุงปทุมธานี แผนการเรียน คอมพิวเตอร์ - อังกฤษ ในเวลาว่างผมชื่นชอบการฟังเพลง เล่นเกมส์ และเขียน code เพื่อฝึกฝนทักษะของตนเอง",
@@ -56,7 +56,7 @@
         "AI Generation",
         "Computer Skills"
       ],
-      "image": "./wai.jpg",
+      "image": "wai.jpg",
       "icon": "fa-solid fa-robot",
       "link": "#"
     },
@@ -68,7 +68,7 @@
         "Public Speaking",
         "Staff & Management"
       ],
-      "image": "./nitan.jpg",
+      "image": "nitan.jpg",
       "icon": "fa-solid fa-award",
       "link": "#"
     },
@@ -80,7 +80,7 @@
         "Leadership",
         "Brainstorming"
       ],
-      "image": "./spa.png",
+      "image": "spa.png",
       "icon": "fa-solid fa-landmark",
       "link": "#"
     }
