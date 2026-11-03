@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>พอร์ตโฟลิโอ | นักออกแบบระบบและจัดการข้อมูล</title>
+  <meta name="description" content="พอร์ตโฟลิโอนักศึกษามหาวิทยาลัยกรุงเทพ สาขาเทคโนโลยีสารสนเทศ ด้านฐานข้อมูลและ UI/UX">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;500;700;800&family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- หน้าโหลด -->
+  <div id="loader" aria-live="polite"><div class="ld-num"><span id="ldNum">0</span>%</div><div class="ld-bar"><i id="ldBar"></i></div><p>กำลังเตรียมข้อมูล</p></div>
+
+  <header id="nav" class="nav">
+    <a href="#home" class="brand" aria-label="กลับหน้าแรก"><i></i>พอร์ตโฟลิโอ</a>
+    <nav id="navLinks" class="links" aria-label="เมนูหลัก"></nav>
+    <button id="menuBtn" class="menu-btn" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-txt" id="heroTxt"></div>
+      <div class="hero-vis" aria-hidden="true">
+        <!-- กราฟิก: ตารางข้อมูลเชื่อมกับหน้าจอผู้ใช้ -->
+        <svg viewBox="0 0 440 400" class="duo">
+          <g class="tbl a">
+            <rect x="10" y="30" width="190" height="150" rx="14"/>
+            <rect x="10" y="30" width="190" height="34" rx="14" class="hd"/>
+            <text x="26" y="52" class="t1">customers</text>
+            <text x="26" y="88">id <tspan class="k">PK</tspan></text><text x="26" y="112">ชื่อ</text><text x="26" y="136">อีเมล</text><text x="26" y="160">สมัครเมื่อ</text>
+            <path d="M10 98h190M10 122h190M10 146h190" class="rl"/>
+          </g>
+          <g class="tbl b">
+            <rect x="60" y="230" width="190" height="130" rx="14"/>
+            <rect x="60" y="230" width="190" height="34" rx="14" class="hd2"/>
+            <text x="76" y="252" class="t1">orders</text>
+            <text x="76" y="288">id <tspan class="k">PK</tspan></text><text x="76" y="312">customer_id <tspan class="k">FK</tspan></text><text x="76" y="336">ยอดรวม</text>
+            <path d="M60 298h190M60 322h190" class="rl"/>
+          </g>
+          <path class="wire" d="M105 180V230"/>
+          <path class="wire flow" d="M200 100C250 100 270 100 300 100"/>
+          <g class="ui">
+            <rect x="290" y="40" width="140" height="300" rx="24"/>
+            <rect x="305" y="60" width="60" height="8" rx="4" class="bar"/>
+            <rect x="305" y="84" width="110" height="70" rx="12" class="blk"/>
+            <rect x="305" y="168" width="110" height="26" rx="8" class="row"/>
+            <rect x="305" y="202" width="110" height="26" rx="8" class="row"/>
+            <rect x="305" y="236" width="110" height="26" rx="8" class="row"/>
+            <rect x="305" y="288" width="110" height="34" rx="17" class="cta"/>
+            <polyline points="316,134 340,114 360,126 400,98" class="trend"/>
+          </g>
+          <path class="wire flow" d="M250 295C275 295 275 275 290 275"/>
+        </svg>
+      </div>
+      <div class="marquee" id="marquee" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="sec about"></section>
+    <section id="skills" class="sec skills"></section>
+    <section id="projects" class="sec projects"></section>
+    <section id="workflow" class="sec workflow"></section>
+    <section id="contact" class="sec contact"></section>
+  </main>
+
+  <footer id="footer" class="footer"></footer>
+
+  <dialog id="dlg" aria-labelledby="dlgTitle"><div id="dlgBody"></div></dialog>
+  <button id="toTop" class="to-top" aria-label="กลับไปด้านบน"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
