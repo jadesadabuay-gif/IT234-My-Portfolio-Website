@@ -2,7 +2,8 @@
   "hero": {
     "subtitle": "คอมพิวเตอร์ - อังกฤษ | โรงเรียนคณะราษฎร์บำรุงปทุมธานี",
     "title": "JASSADA BUAYAIRAKSA",
-    "description": "มีความสนใจด้าน Coding อย่างมาก ชอบการสร้างสรรค์จินตนาการอย่างไร้ขีดจำกัด และรักในการเรียนรู้เทคโนโลยีใหม่ๆ เพื่อพัฒนาตนเองอย่างไม่สิ้นสุด"
+    "description": "มีความสนใจด้าน Coding อย่างมาก ชอบการสร้างสรรค์จินตนาการอย่างไร้ขีดจำกัด และรักในการเรียนรู้เทคโนโลยีใหม่ๆ เพื่อพัฒนาตนเองอย่างไม่สิ้นสุด",
+    "profileImage": "https://cdn.phototourl.com/member/2026-11-03-dde08e87-e7d1-4a76-81b6-ee9375784374.jpg"
   },
   "about": {
     "bio": "ผมชื่อ นายเจษฎา บัวใหญ่รักษา เกิดวันที่ 14 พฤศจิกายน 2549 ปัจจุบันกำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 6 โรงเรียนคณะราษฎร์บำรุงปทุมธานี แผนการเรียน คอมพิวเตอร์ - อังกฤษ ในเวลาว่างผมชื่นชอบการฟังเพลง เล่นเกมส์ และเขียน code เพื่อฝึกฝนทักษะของตนเอง",
@@ -55,6 +56,7 @@
         "AI Generation",
         "Computer Skills"
       ],
+      "image": "https://cdn.phototourl.com/member/2026-11-03-e9fc6277-f6a3-4926-a67f-8c50611de15e.jpg",
       "icon": "fa-solid fa-robot",
       "link": "#"
     },
@@ -66,6 +68,7 @@
         "Public Speaking",
         "Staff & Management"
       ],
+      "image": "https://cdn.phototourl.com/member/2026-11-03-41bef8c8-de25-4a55-b68a-7eed96f98a62.jpg",
       "icon": "fa-solid fa-award",
       "link": "#"
     },
@@ -77,6 +80,7 @@
         "Leadership",
         "Brainstorming"
       ],
+      "image": "https://cdn.phototourl.com/member/2026-11-03-ec2d2ccc-7171-49e7-8237-c610289e2e8d.png",
       "icon": "fa-solid fa-landmark",
       "link": "#"
     }
@@ -105,27 +109,12 @@
   ],
   "contact": {
     "title": "ช่องทางการติดต่อ",
-    "description": "ที่อยู่: 204/1 หมู่ 6 ซอย 1/8 ต.บางพูน อ.เมือง จ.ปทุมธานี 12000",
+    "description": "หากสนใจร่วมงานหรือสอบถามข้อมูลเพิ่มเติม สามารถติดต่อทางโทรศัพท์ได้โดยตรง",
     "links": [
       {
         "platform": "080-086-3778",
         "url": "tel:0800863778",
         "icon": "fa-solid fa-phone"
-      },
-      {
-        "platform": "Jadssada Buayairaksa",
-        "url": "#",
-        "icon": "fa-brands fa-facebook"
-      },
-      {
-        "platform": "jetssada_bro",
-        "url": "#",
-        "icon": "fa-brands fa-instagram"
-      },
-      {
-        "platform": "cess9160@gmail.com",
-        "url": "mailto:cess9160@gmail.com",
-        "icon": "fa-solid fa-envelope"
       }
     ]
   }
