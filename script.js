@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const loader = document.getElementById('loader');
         loader.style.opacity = '0';
         loader.style.visibility = 'hidden';
-    }, 1000); 
+    }, 1000);
 
     // 2. Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
@@ -35,8 +35,8 @@ async function fetchData() {
         renderPortfolio(data);
     } catch (error) {
         console.error("Error loading portfolio data:", error);
-        if(window.location.protocol === 'file:') {
-            alert("⚠️ ไม่สามารถโหลดข้อมูล JSON ได้ กรุณาอัปโหลดขึ้น GitHub หรือเปิดผ่าน Local Server");
+        if (window.location.protocol === 'file:') {
+            alert("⚠️ ไม่สามารถโหลดข้อมูล JSON ได้ กรุณาเปิดผ่าน Local Server หรือตรวจสอบการตั้งค่าบน GitHub Pages");
         }
     }
 }
@@ -46,6 +46,15 @@ function renderPortfolio(data) {
     document.getElementById('hero-subtitle').textContent = data.hero.subtitle;
     document.getElementById('hero-title').textContent = data.hero.title;
     document.getElementById('hero-desc').textContent = data.hero.description;
+
+    const heroVisual = document.getElementById('hero-visual');
+    if (data.hero.profileImage) {
+        heroVisual.innerHTML = `
+            <div class="profile-frame">
+                <img src="${data.hero.profileImage}" alt="${data.hero.title}" class="profile-img">
+            </div>
+        `;
+    }
 
     // Render About
     document.getElementById('about-bio').textContent = data.about.bio;
@@ -67,6 +76,7 @@ function renderPortfolio(data) {
 
     // Render Skills
     const skillsContainer = document.getElementById('skills-container');
+    skillsContainer.innerHTML = '';
     data.skills.forEach(skillCategory => {
         const tags = skillCategory.items.map(item => `<span class="skill-tag">${item}</span>`).join('');
         skillsContainer.innerHTML += `
@@ -82,13 +92,18 @@ function renderPortfolio(data) {
 
     // Render Projects
     const projectsContainer = document.getElementById('projects-container');
+    projectsContainer.innerHTML = '';
     data.projects.forEach(project => {
         const techTags = project.technologies.map(tech => `<span>${tech}</span>`).join('');
+        const visualContent = project.image 
+            ? `<img src="${project.image}" alt="${project.title}" class="project-img">`
+            : `<i class="${project.icon}"></i>`;
+
         projectsContainer.innerHTML += `
             <div class="project-card">
                 <div class="project-visual">
-                    <span class="project-number">${project.id}</span>
-                    <i class="${project.icon}"></i>
+                    <span class="project-number">PROJECT ${project.id}</span>
+                    ${visualContent}
                 </div>
                 <div class="project-content">
                     <h3>${project.title}</h3>
@@ -106,6 +121,7 @@ function renderPortfolio(data) {
 
     // Render Workflow
     const workflowContainer = document.getElementById('workflow-container');
+    workflowContainer.innerHTML = '';
     data.workflow.forEach(step => {
         workflowContainer.innerHTML += `
             <div class="timeline-item">
@@ -123,9 +139,10 @@ function renderPortfolio(data) {
     document.getElementById('contact-desc').textContent = data.contact.description;
     
     const socialContainer = document.getElementById('social-container');
+    socialContainer.innerHTML = '';
     data.contact.links.forEach(link => {
         socialContainer.innerHTML += `
-            <a href="${link.url}" class="social-btn" target="_blank">
+            <a href="${link.url}" class="contact-phone-btn">
                 <i class="${link.icon}"></i> ${link.platform}
             </a>
         `;
