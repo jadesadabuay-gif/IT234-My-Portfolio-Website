@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>พอร์ตโฟลิโอ | นักศึกษามหาวิทยาลัยกรุงเทพ</title>
+<meta name="description" content="พอร์ตโฟลิโอนักศึกษามหาวิทยาลัยกรุงเทพ ด้านฐานข้อมูล การวิเคราะห์ข้อมูล และการออกแบบ UI/UX">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A2342;--orange:#FF7A1A;--glass:rgba(255,255,255,.12);--edge:rgba(255,255,255,.28);--pad:clamp(20px,5vw,80px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Sarabun',sans-serif;font-size:1.0625rem;line-height:1.75;color:#fff;background:var(--navy);overflow-x:hidden}
+h1,h2,h3{font-family:'Kanit',sans-serif;line-height:1.25;font-weight:500}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+/* พื้นหลังตึกเรียน: ใส่รูปจริงที่ assets/images/bu-building.jpg (ถ้าไม่มีจะแสดงภาพวาดตึกแทน) */
+.bg{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,#0A2342 0%,#143a66 60%,#1d4a7d 100%);overflow:hidden}
+.bg svg{position:absolute;bottom:0;left:0;width:100%;height:75%;filter:blur(3px);opacity:.9}
+.bg .photo{position:absolute;inset:-20px;background:url(assets/images/bu-building.jpg) center/cover no-repeat;filter:blur(6px) saturate(1.05)}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,35,66,.82),rgba(10,35,66,.55) 45%,rgba(10,35,66,.88))}
+
+header{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;height:62px;padding:0 var(--pad);background:rgba(10,35,66,.45);backdrop-filter:blur(14px);border-bottom:1px solid var(--edge)}
+.brand{font-family:'Kanit';font-weight:600}.brand i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--orange);margin-right:10px}
+nav{display:flex;gap:26px}nav a{font-family:'Kanit';font-size:.95rem;opacity:.85;transition:.2s}nav a:hover{color:var(--orange);opacity:1}
+
+section{padding:100px var(--pad)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
+.badge{align-self:flex-start;padding:6px 18px;border-radius:99px;background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(10px);font-family:'Kanit';font-size:.92rem;margin-bottom:26px}
+.hero h1{font-size:clamp(2.4rem,7vw,5.4rem);font-weight:600;max-width:11em}
+.en{font-family:'Kanit';font-weight:300;font-size:clamp(1.1rem,2.6vw,1.9rem);letter-spacing:.14em;color:var(--orange);margin:14px 0 22px}
+.desc{max-width:34em;font-size:1.2rem;opacity:.9}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn{font-family:'Kanit';padding:13px 30px;border-radius:99px;border:1.5px solid var(--edge);background:var(--glass);backdrop-filter:blur(10px);transition:.25s;cursor:pointer;color:#fff;font-size:1rem}
+.btn.p{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.3)}.btn:not(.p):hover{border-color:var(--orange);color:var(--orange)}
+
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:36px;display:flex;align-items:center;gap:16px}
+h2::after{content:"";height:3px;width:64px;background:var(--orange);border-radius:3px}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:22px;backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 8px 32px rgba(0,0,0,.25);transition:transform .3s,border-color .3s}
+.glass:hover{transform:translateY(-5px);border-color:var(--orange)}
+
+.main-skills{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.main-skills .glass{padding:30px}
+.main-skills h3{font-size:1.4rem;color:var(--orange);margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.tag{padding:9px 20px;border-radius:99px;background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(12px);font-family:'Kanit';font-size:.98rem;transition:.25s}
+.tag:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-2px)}
+
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj{padding:30px;display:flex;flex-direction:column;gap:12px}
+.proj .no{font-family:'Kanit';font-size:2.6rem;font-weight:600;color:var(--orange);line-height:1}
+.focus{align-self:flex-start;font-family:'Kanit';font-size:.85rem;padding:2px 14px;border-radius:99px;background:rgba(255,122,26,.18);border:1px solid var(--orange)}
+.proj h3{font-size:1.25rem}.proj p{opacity:.88;font-size:1rem}
+.ptags{font-size:.92rem;color:#ffc79c}
+.proj .btn{align-self:flex-start;margin-top:auto;padding:9px 24px}
+
+.contact{text-align:left}
+.contact h2{font-size:clamp(2rem,5vw,3.6rem)}
+.clinks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;list-style:none}
+.clinks a{display:block;padding:22px 26px}.clinks b{display:block;font-family:'Kanit';font-weight:500;color:var(--orange)}.clinks span{overflow-wrap:anywhere}
+footer{padding:28px var(--pad);opacity:.65;font-size:.92rem;border-top:1px solid var(--edge)}
+.err{padding:140px var(--pad)}
+
+@media(max-width:900px){.projects,.clinks{grid-template-columns:1fr}.main-skills{grid-template-columns:1fr}section{padding:76px var(--pad)}nav{gap:16px}nav a:nth-child(n+4){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice">
+    <g fill="#0f2f55"><rect x="60" y="330" width="170" height="270"/><rect x="930" y="300" width="210" height="300"/><rect x="250" y="420" width="120" height="180"/><rect x="820" y="400" width="120" height="200"/></g>
+    <rect x="420" y="90" width="360" height="510" fill="#173f6e"/><rect x="470" y="40" width="260" height="60" fill="#173f6e"/>
+    <g stroke="#FF7A1A" stroke-width="3" opacity=".55"><path d="M420 150h360M420 250h360M420 350h360M420 450h360"/></g>
+    <g fill="#ffd9b8" opacity=".55" id="w"></g>
+  </svg>
+  <div class="photo"></div>
+</div>
+
+<header><a href="#top" class="brand" id="brand"><i></i></a><nav id="nav"><a href="#skills">ทักษะ</a><a href="#projects">ผลงาน</a><a href="#contact">ติดต่อ</a></nav></header>
+
+<main id="top">
+  <section class="hero">
+    <p class="badge" id="badge"></p>
+    <h1 id="title"></h1>
+    <p class="en" id="en"></p>
+    <p class="desc" id="desc"></p>
+    <div class="cta"><a class="btn p" href="#projects" id="c1"></a><a class="btn" href="#contact" id="c2"></a></div>
+  </section>
+  <section id="skills"><h2 id="sTitle"></h2><div class="main-skills" id="mainSkills"></div><div class="tags" id="extra"></div></section>
+  <section id="projects"><h2 id="pTitle"></h2><div class="projects" id="projList"></div></section>
+  <section id="contact" class="contact"><h2 id="cTitle"></h2><p id="cDesc"></p><ul class="clinks" id="cLinks"></ul></section>
+</main>
+<footer id="foot"></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// หน้าต่างของตึกจำลอง
+let w='';for(let r=0;r<4;r++)for(let c=0;c<8;c++)if((r*3+c*5)%4)w+=`<rect x="${440+c*42}" y="${110+r*100}" width="22" height="34"/>`;$('w').innerHTML=w;
+
+fetch('data.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{
+  document.title=d.site.title;document.querySelector('meta[name=description]').content=d.site.description;
+  $('brand').append(d.site.brand);$('foot').textContent=d.site.footer;
+  const h=d.hero;$('badge').textContent=h.badge;$('title').textContent=h.title;$('en').textContent=h.en;$('desc').textContent=h.desc;$('c1').textContent=h.cta1;$('c2').textContent=h.cta2;
+  $('sTitle').textContent=d.skills.title;
+  $('mainSkills').innerHTML=d.skills.main.map(s=>`<article class="glass"><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p></article>`).join('');
+  $('extra').innerHTML=d.skills.extra.map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+  $('pTitle').textContent=d.projects.title;
+  $('projList').innerHTML=d.projects.items.map((p,i)=>`<article class="glass proj"><span class="no">0${i+1}</span><span class="focus">${esc(p.focus)}</span><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><p class="ptags">${p.tags.map(esc).join(' / ')}</p><a class="btn" href="${esc(p.link)}">${esc(d.projects.more)}</a></article>`).join('');
+  const c=d.contact;$('cTitle').textContent=c.title;$('cDesc').textContent=c.desc;
+  $('cLinks').innerHTML=c.links.map(l=>`<li><a class="glass" href="${esc(l.url)}" target="_blank" rel="noopener"><b>${esc(l.label)}</b><span>${esc(l.text)}</span></a></li>`).join('');
+}).catch(()=>{$('top').insertAdjacentHTML('afterbegin','<p class="err">โหลด data.json ไม่สำเร็จ กรุณาเปิดผ่าน Live Server หรือ GitHub Pages</p>')});
+</script>
+</body>
+</html>
