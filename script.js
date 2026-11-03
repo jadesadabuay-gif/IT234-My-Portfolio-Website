@@ -1,14 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. บังคับซ่อน Loader เมื่อโหลดหน้าเว็บเสร็จ (ไม่หมุนค้างแน่นอน)
-    setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.style.opacity = '0';
-            loader.style.visibility = 'hidden';
-        }
-    }, 800);
-
-    // 2. Navbar Scroll Effect
+    // 1. Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -18,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 3. Fetch Data จาก JSON
+    // 2. Fetch Data จาก JSON
     fetchData();
 
-    // 4. Scroll Animation Observer
+    // 3. Scroll Animation Observer
     setupScrollObserver();
 });
 
@@ -37,11 +28,6 @@ async function fetchData() {
         renderPortfolio(data);
     } catch (error) {
         console.error("Error loading portfolio data:", error);
-        // แสดงข้อความแจ้งเตือนบนหน้าเว็บหากหาไฟล์ JSON ไม่เจอ
-        const heroDesc = document.getElementById('hero-desc');
-        if (heroDesc) {
-            heroDesc.textContent = "ไม่สามารถดึงข้อมูล portfolio.jsonได้ กรุณาตรวจสอบโฟลเดอร์ data/portfolio.json บน GitHub";
-        }
     }
 }
 
