@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jassada Buayairaksa | Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loader" class="loader-wrapper">
+        <div class="data-node-loader"></div>
+        <p>INITIALIZING DATA...</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">PETCH<span>.DEV</span></a>
+            <div class="nav-links">
+                <a href="#about">เกี่ยวกับฉัน</a>
+                <a href="#skills">ทักษะ</a>
+                <a href="#projects">ผลงาน</a>
+                <a href="#workflow">กระบวนการ</a>
+            </div>
+            <a href="#contact" class="btn-contact-nav">ติดต่อฉัน</a>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 01: Hero -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background-abstract"></div>
+        <div class="hero-container reveal">
+            <div class="hero-content">
+                <div class="badge">Bangkok University • IT Student</div>
+                <h2 class="hero-subtitle" id="hero-subtitle">กำลังโหลดข้อมูล...</h2>
+                <h1 class="hero-title gradient-text" id="hero-title">DATA-DRIVEN DESIGNER</h1>
+                <p class="hero-desc" id="hero-desc">กำลังโหลดข้อมูล...</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">ดูผลงาน <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#about" class="btn-secondary">เกี่ยวกับฉัน</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="data-art">
+                    <div class="circle c1"></div>
+                    <div class="circle c2"></div>
+                    <div class="glass-panel">
+                        <i class="fa-solid fa-database"></i>
+                        <div class="line w-100"></div>
+                        <div class="line w-75"></div>
+                    </div>
+                    <div class="glass-panel p2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <div class="line w-100"></div>
+                        <div class="line w-50"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02: About Me -->
+    <section id="about" class="about-section">
+        <div class="container reveal">
+            <h2 class="section-heading">ทำความรู้จักกับฉัน<span class="dot">.</span></h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p id="about-bio">กำลังโหลดข้อมูล...</p>
+                </div>
+                <div class="about-stats" id="about-info">
+                    <!-- ข้อมูลจำเพาะจะถูกดึงผ่าน JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Skills -->
+    <section id="skills" class="skills-section">
+        <div class="container reveal">
+            <h2 class="section-heading">ทักษะความเชี่ยวชาญ<span class="dot">.</span></h2>
+            <div class="skills-grid" id="skills-container">
+                <!-- ทักษะจะถูกดึงผ่าน JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: Projects -->
+    <section id="projects" class="projects-section">
+        <div class="container reveal">
+            <h2 class="section-heading">ผลงานที่โดดเด่น<span class="dot">.</span></h2>
+            <div class="projects-wrapper" id="projects-container">
+                <!-- โปรเจกต์จะถูกดึงผ่าน JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Experience & Workflow -->
+    <section id="workflow" class="workflow-section">
+        <div class="container reveal">
+            <h2 class="section-heading">ประสบการณ์กิจกรรม<span class="dot">.</span></h2>
+            <div class="timeline" id="workflow-container">
+                <!-- Workflow จะถูกดึงผ่าน JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 06: Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container reveal">
+            <div class="contact-box">
+                <h2 id="contact-title">มาร่วมสร้างสรรค์สิ่งใหม่ไปด้วยกัน</h2>
+                <p id="contact-desc">กำลังโหลดข้อมูล...</p>
+                <div class="social-links" id="social-container">
+                    <!-- ช่องทางติดต่อจะถูกดึงผ่าน JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Jassada Buayairaksa (Petch). All Rights Reserved.</p>
+            <a href="#hero" class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
